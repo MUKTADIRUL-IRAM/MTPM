@@ -41,7 +41,7 @@ const Login = () => {
      
      Swal.fire("Logged in Successfully!");
 
-     navigate('/dashboard');
+     navigate('/workspace');//Change it to WorkSpace
 
      
     }).catch((error) => {

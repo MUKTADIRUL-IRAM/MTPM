@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useEffect,useState } from "react";
 import axios from "axios";
 import { AiOutlineEnter } from "react-icons/ai";
@@ -16,6 +16,12 @@ const ProjectPage = () => {
     const {id} = useParams();
     const [projectName,setProjectName] = useState([]);
     const [taskUI,setTaskUI] = useState([]);//Store all the task
+    const location = useLocation();
+
+    const {workSpace} = location.state || [];
+
+    console.log("WorkSpace is : ",workSpace);
+    
     
     useEffect(()=>{
 
@@ -51,24 +57,24 @@ const ProjectPage = () => {
 
 
   return (
-    <div className="bg-amber-600 flex flex-col w-screen h-screen">
+    <div className="bg-amber-600 flex flex-col w-screen min-h-screen">
        <div className="mt-4 font-semibold text-2xl md:text-4xl py-2 bg-red-600 text-center">{projectName.project_Name}</div>
        {/* Kanban Board */}
        <div className="w-screen h-[60vh] md:h-[80vh] mt-4 p-4 md:pt-8 flex justify-center items-start md:justify-evenly gap-2 bg-cyan-600">
 
           {/* To Do Board */}
           <div className="w-38 md:w-96 min-h-96 md:min-h-4/5 max-h-full overflow-y-auto overflow-x-hidden rounded-lg text-white bg-[#17181a]">
-           <ToDo id={id} taskUI={taskUI} setTaskUI={setTaskUI}></ToDo>
+           <ToDo workSpace={workSpace} id={id} taskUI={taskUI} setTaskUI={setTaskUI}></ToDo>
           </div>
 
           {/* In Progress Board */}
           <div className="w-38 md:w-96 min-h-96 md:min-h-4/5 max-h-full overflow-y-auto overflow-x-hidden rounded-lg text-white bg-[#17181a]">
-             <InProgress id={id} taskUI={taskUI} setTaskUI={setTaskUI}></InProgress>
+             <InProgress workSpace={workSpace} id={id} taskUI={taskUI} setTaskUI={setTaskUI}></InProgress>
           </div>
 
           {/* Done Board */}
           <div className="w-38 md:w-96 min-h-96 md:min-h-4/5 max-h-full overflow-y-auto overflow-x-hidden rounded-lg text-white bg-[#17181a]">
-             <Done id={id} taskUI={taskUI} setTaskUI={setTaskUI}></Done>
+             <Done workSpace={workSpace} id={id} taskUI={taskUI} setTaskUI={setTaskUI}></Done>
           </div>
 
        </div>

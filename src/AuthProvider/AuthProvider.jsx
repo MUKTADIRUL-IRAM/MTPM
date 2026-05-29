@@ -12,7 +12,7 @@ import axios from "axios";
 
 const AuthProvider = ({children}) => {
       
-    const [user,setUser] = useState();
+    const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true);
 
     const provider = new GoogleAuthProvider();
@@ -83,6 +83,7 @@ const AuthProvider = ({children}) => {
                 axios.post("http://localhost:3000/auth/logout",{},{withCredentials:true})
                 .then((res)=>{
                     console.log("Log-out Token (From AuthProvider) : ",res.data);
+                    setUser(null);
                     setLoading(false);
                 })
                 .catch((error)=>{
@@ -105,7 +106,7 @@ const AuthProvider = ({children}) => {
 
     },[]);
 
-    const authInfo = {user,loading,createUser,signInUser,emailVerification,updateUserProfile,signInByGoogle,signInByFB,signUserOut};
+    const authInfo = {user,loading,setLoading,createUser,signInUser,emailVerification,updateUserProfile,signInByGoogle,signInByFB,signUserOut};
 
     return (
         <div>

@@ -5,7 +5,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 
 
-const ToDo = ({id,taskUI,setTaskUI}) => {
+const ToDo = ({id,taskUI,setTaskUI,workSpace}) => {
 
     const [open,setOpen] = useState(false);//For opening the task box when clicking "+Create"
     const [heading,setHeading] = useState(false);//For Heading e.g TO DO,IN INPROGRESS,DONE
@@ -84,7 +84,7 @@ const ToDo = ({id,taskUI,setTaskUI}) => {
             .then((res)=>{
 
               setTaskUI(prev=>
-              //We have run a '.map' here because we need "to update just ONE item inside the array"
+              //We have to run a '.map' here because we need "to update just ONE item inside the array"
               //.map --> creates new array
               //Step-by-step:
               //1.Take old array (prev)
@@ -106,7 +106,7 @@ const ToDo = ({id,taskUI,setTaskUI}) => {
           // 🟢 CREATE MODE
           if(!task.trim())
           {return}
-          const data = {project_id : id,task : task,status : "todo"};
+          const data = {project_id : id,task : task,status : "todo",workSpaceId : workSpace._id};
           axios.post('http://localhost:3000/task/post_tasks',data,{withCredentials:true})
           .then((res)=>{
            console.log("Successfully Submitted Task To DataBase : ",res.data);

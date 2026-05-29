@@ -6,7 +6,7 @@ import { FaEdit } from "react-icons/fa";
 
 
 
-const Done = ({id,taskUI,setTaskUI}) => {
+const Done = ({id,taskUI,setTaskUI,workSpace}) => {
     const [heading,setHeading] = useState(false);//For Heading e.g TO DO,IN INPROGRESS,DONE
     const [open,setOpen] = useState(false);//For opening the task box when clicking "+Create"
     const [task,setTask] = useState("");//For Creating Task
@@ -106,7 +106,7 @@ const handleTask = (e)=>{
           // 🟢 CREATE MODE
           if(!task.trim())
           {return}
-          const data = {project_id : id,task : task,status : "done"};
+          const data = {project_id : id,task : task,status : "done",workSpaceId : workSpace._id};
           axios.post('http://localhost:3000/task/post_tasks',data,{withCredentials : true})
           .then((res)=>{
            console.log("Successfully Submitted Done Task To DataBase : ",res.data);
