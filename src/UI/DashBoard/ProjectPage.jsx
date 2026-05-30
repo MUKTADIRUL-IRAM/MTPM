@@ -58,9 +58,9 @@ const ProjectPage = () => {
 
   return (
     <div className="bg-amber-600 flex flex-col w-screen min-h-screen">
-       <div className="mt-4 font-semibold text-2xl md:text-4xl py-2 bg-red-600 text-center">{projectName.project_Name}</div>
+       <div className="mt-4 font-semibold text-2xl md:text-4xl py-2 text-center">{projectName.project_Name}</div>
        {/* Kanban Board */}
-       <div className="w-screen h-[60vh] md:h-[80vh] mt-4 p-4 md:pt-8 flex justify-center items-start md:justify-evenly gap-2 bg-cyan-600">
+       <div className="w-screen h-[60vh] md:h-[80vh] mt-4 p-4 md:pt-8 flex justify-center items-start md:justify-evenly gap-2">
 
           {/* To Do Board */}
           <div className="w-38 md:w-96 min-h-96 md:min-h-4/5 max-h-full overflow-y-auto overflow-x-hidden rounded-lg text-white bg-[#17181a]">
