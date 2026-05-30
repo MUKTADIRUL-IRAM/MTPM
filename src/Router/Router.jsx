@@ -3,7 +3,7 @@ import Registration from "../Authentication/Registration";
 import MainLayOut from "../LayOut/MainLayOut";
 import Login from "../Authentication/Login";
 import DashBoard from "../UI/DashBoard/DashBoard";
-import ProjectPage from "../UI/DashBoard/projectPage";
+import ProjectPage from "../UI/DashBoard/ProjectPage";
 import WorkSpace from "../UI/DashBoard/WorkSpace";
 import WorkSpaceForm from "../UI/DashBoard/WorkSpaceForm";
 import MainArea from "../UI/DashBoard/MainArea";
