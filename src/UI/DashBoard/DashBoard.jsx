@@ -12,7 +12,7 @@ const DashBoard = ()=>{
 
     useEffect(()=>{
 
-        axios.get(`http://localhost:3000/workSpace/getSingleWorkSpace/${workSpaceId}`,{withCredentials:true})
+        axios.get(`https://mtpm-server.onrender.com/workSpace/getSingleWorkSpace/${workSpaceId}`,{withCredentials:true})
         .then((res)=>{
            setWorkSpace(res.data);
            console.log("Fetched WorkSpace is : " ,res.data);

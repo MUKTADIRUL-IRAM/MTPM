@@ -11,7 +11,7 @@ const WorkSpace = () => {
 
   const fetchWorkSpaces = ()=>{
 
-    axios.get('http://localhost:3000/workSpace/getWorkSpaceList',{withCredentials : true})
+    axios.get('https://mtpm-server.onrender.com/workSpace/getWorkSpaceList',{withCredentials : true})
     .then((res)=>{
       setWorkSpaceList(res.data);
       console.log("Successfully Fetched all the WorkSpaces : ",res.data);

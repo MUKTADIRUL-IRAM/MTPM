@@ -63,7 +63,7 @@ const AuthProvider = ({children}) => {
               if(currentUser?.email && currentUser.emailVerified)
               {
                 const userEmail = {email : currentUser.email};
-                axios.post("http://localhost:3000/auth/jwt",userEmail,{withCredentials:true})
+                axios.post("https://mtpm-server.onrender.com/auth/jwt",userEmail,{withCredentials:true})
                 .then((res)=>{
                     console.log("Login Token (From AuthProvider) : ",res.data);
                     setLoading(false);
@@ -80,7 +80,7 @@ const AuthProvider = ({children}) => {
               //Clearing Token While Log out
               else
               {
-                axios.post("http://localhost:3000/auth/logout",{},{withCredentials:true})
+                axios.post("https://mtpm-server.onrender.com/auth/logout",{},{withCredentials:true})
                 .then((res)=>{
                     console.log("Log-out Token (From AuthProvider) : ",res.data);
                     setUser(null);

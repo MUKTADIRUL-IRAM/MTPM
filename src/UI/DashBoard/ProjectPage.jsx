@@ -25,7 +25,7 @@ const ProjectPage = () => {
     
     useEffect(()=>{
 
-        axios.get(`http://localhost:3000/project/getSingleProject/${id}`,{withCredentials:true})
+        axios.get(`https://mtpm-server.onrender.com/project/getSingleProject/${id}`,{withCredentials:true})
         .then((res)=>{
             setProjectName(res.data);
             console.log('Project Name is : ',res.data);
@@ -40,7 +40,7 @@ const ProjectPage = () => {
 
 
 
-        axios.get(`http://localhost:3000/task/get_tasks/${id}`,{withCredentials:true})
+        axios.get(`https://mtpm-server.onrender.com/task/get_tasks/${id}`,{withCredentials:true})
         .then((res)=>{
             setTaskUI(res.data);
             console.log("Successfully Fetched Get-Task UI from Backend : ",res.data);

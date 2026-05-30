@@ -35,7 +35,7 @@ const InviteMember = ({workSpace}) => {
 
      const invitationData = {workSpaceId : workSpace._id,email,role};
 
-     axios.post("http://localhost:3000/invitation/createInvitedUserData",invitationData,{withCredentials : true})
+     axios.post("https://mtpm-server.onrender.com/invitation/createInvitedUserData",invitationData,{withCredentials : true})
      .then((res)=>{
       console.log("Invitation Data : ",res.data);
       setEmail("");

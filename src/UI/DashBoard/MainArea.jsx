@@ -35,7 +35,7 @@ const MainArea = ({workSpace})=>{
 
   //  useEffect(()=>{
 
-  //   axios.get('http://localhost:3000/workSpace/getWorkSpaceList')
+  //   axios.get('https://mtpm-server.onrender.com/workSpace/getWorkSpaceList')
   //   .then((res)=>{
         
   //   }).catch((error)=>{
@@ -60,7 +60,7 @@ const MainArea = ({workSpace})=>{
     if(!projectName.trim())
     {return}
     const data = {project_Name : projectName, workSpaceId : workSpace._id};
-    axios.post('http://localhost:3000/project/postProjects',data,{withCredentials:true})
+    axios.post('https://mtpm-server.onrender.com/project/postProjects',data,{withCredentials:true})
     .then((res)=>{
       setProjects(prev=>[...prev,res.data]);
       console.log("Successfully Created Project : ",res.data);
@@ -91,7 +91,7 @@ const MainArea = ({workSpace})=>{
 
     if (result.isConfirmed)
     {
-       axios.delete(`http://localhost:3000/project/deleteProject/${projectId}`,{withCredentials:true})
+       axios.delete(`https://mtpm-server.onrender.com/project/deleteProject/${projectId}`,{withCredentials:true})
        .then((res)=>{
         console.log("Response from backend after deletion : ",res.data);
         
@@ -135,7 +135,7 @@ const MainArea = ({workSpace})=>{
 
      setLoadingProjects(true);
 
-     axios.get(`http://localhost:3000/project/getProjects/${workSpace._id}`,{withCredentials:true})
+     axios.get(`https://mtpm-server.onrender.com/project/getProjects/${workSpace._id}`,{withCredentials:true})
      .then((res)=>{
       setProjects(res.data);
       console.log("Successfully Fetched Projects data From MongoDB & Data is : ",res.data);

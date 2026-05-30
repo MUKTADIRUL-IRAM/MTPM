@@ -37,7 +37,7 @@ const Login = () => {
 
      const userData = {name : user.displayName,email : user.email,verifiedEmail : user.emailVerified};
 
-     await axios.post("http://localhost:3000/users/userData",userData,{withCredentials:true});
+     await axios.post("https://mtpm-server.onrender.com/users/userData",userData,{withCredentials:true});
      
      Swal.fire("Logged in Successfully!");
 
@@ -73,7 +73,7 @@ const Login = () => {
 
      const userData = {name : user.displayName,email : user.email,verifiedEmail : user.emailVerified};
 
-     await axios.post("http://localhost:3000/users/userData",userData,{withCredentials:true});
+     await axios.post("https://mtpm-server.onrender.com/users/userData",userData,{withCredentials:true});
      
      Swal.fire("Logged in Successfully!");
 
@@ -107,7 +107,7 @@ const Login = () => {
 
      const userData = {name : user.displayName,email : user.email,verifiedEmail : user.emailVerified};
 
-     await axios.post("http://localhost:3000/users/userData",userData,{withCredentials:true});
+     await axios.post("https://mtpm-server.onrender.com/users/userData",userData,{withCredentials:true});
      
      Swal.fire("Logged in Successfully!");
 

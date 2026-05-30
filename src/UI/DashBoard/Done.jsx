@@ -80,7 +80,7 @@ const handleTask = (e)=>{
           {
             const updateTask = {task : editText};
 
-            axios.put(`http://localhost:3000/task/update_task/${editingTaskId}`,updateTask,{withCredentials : true})
+            axios.put(`https://mtpm-server.onrender.com/task/update_task/${editingTaskId}`,updateTask,{withCredentials : true})
             .then((res)=>{
 
               setTaskUI(prev=>
@@ -107,7 +107,7 @@ const handleTask = (e)=>{
           if(!task.trim())
           {return}
           const data = {project_id : id,task : task,status : "done",workSpaceId : workSpace._id};
-          axios.post('http://localhost:3000/task/post_tasks',data,{withCredentials : true})
+          axios.post('https://mtpm-server.onrender.com/task/post_tasks',data,{withCredentials : true})
           .then((res)=>{
            console.log("Successfully Submitted Done Task To DataBase : ",res.data);
            setTask("");   //clear input
@@ -128,7 +128,7 @@ const handleTask = (e)=>{
 
     const handleStatusChange = (taskId,newStatus)=>{
        
-      axios.put(`http://localhost:3000/task/update_status/${taskId}`,{status : newStatus},{withCredentials : true})
+      axios.put(`https://mtpm-server.onrender.com/task/update_status/${taskId}`,{status : newStatus},{withCredentials : true})
       .then(res=>{
         console.log("STATUS RESPONSE:", res.data);
         setTaskUI(prev=> 

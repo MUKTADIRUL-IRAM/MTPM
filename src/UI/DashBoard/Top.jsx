@@ -33,7 +33,7 @@ const Top = ({fetchWorkSpaces})=>{
    //polling
    const fetchNotifications = ()=>{
 
-      axios.get("http://localhost:3000/notification/getNotifications",{withCredentials:true})
+      axios.get("https://mtpm-server.onrender.com/notification/getNotifications",{withCredentials:true})
       .then((res)=>{
          console.log("Successfully fetched all the notification :",res.data);
          setNotifications(res.data);//"React, please update this state on next render"
@@ -130,7 +130,7 @@ const Top = ({fetchWorkSpaces})=>{
 
    const acceptInvitation = (invitationId)=>{
       //General PATCH syntax : axios.patch(url,data,config) if no data then axios.patch(url,{},config)
-      axios.patch(`http://localhost:3000/invitation/acceptInvitation/${invitationId}`,{},{withCredentials:true})
+      axios.patch(`https://mtpm-server.onrender.com/invitation/acceptInvitation/${invitationId}`,{},{withCredentials:true})
       .then((res)=>{
          console.log("Successfully Add member to a WorkSpace & Changed Status in Invitation Collection : ",res.data);
          fetchWorkSpaces();
@@ -160,7 +160,7 @@ const Top = ({fetchWorkSpaces})=>{
 
      const rejectInvitation = (invitationId)=>{
 
-      axios.patch(`http://localhost:3000/invitation/rejectInvitation/${invitationId}`,{},{withCredentials:true})
+      axios.patch(`https://mtpm-server.onrender.com/invitation/rejectInvitation/${invitationId}`,{},{withCredentials:true})
       .then((res)=>{
          console.log("Couldn't Add member to a WorkSpace & Changed Status in Invitation Collection : ",res.data);
 

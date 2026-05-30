@@ -15,7 +15,7 @@ const WorkSpaceForm = () => {
           if(!workSpaceName.trim())
           {return}
 
-          axios.post('http://localhost:3000/workSpace/createWorkSpace',{workSpaceName},{withCredentials:true})
+          axios.post('https://mtpm-server.onrender.com/workSpace/createWorkSpace',{workSpaceName},{withCredentials:true})
           .then((res)=>{
 
             console.log("Workspace created Successfully : ",res.data,"   Tenant Id Successfully added to user");
