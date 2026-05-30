@@ -184,6 +184,7 @@ const ToDo = ({id,taskUI,setTaskUI,workSpace}) => {
                     }
                     }}
             className="w-full min-h-20 p-1 border md:border-4 border-[#3b82f6] rounded-md bg-[#22272b] focus:outline-none"/>
+             <button type="submit" className="absolute right-0.5 top-15.5 bg-blue-500"> <AiOutlineEnter></AiOutlineEnter> </button>
             </form>
             </div>
             :

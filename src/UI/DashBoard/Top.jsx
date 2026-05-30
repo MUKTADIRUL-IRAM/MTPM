@@ -37,8 +37,6 @@ const Top = ({fetchWorkSpaces})=>{
       .then((res)=>{
          console.log("Successfully fetched all the notification :",res.data);
          setNotifications(res.data);//"React, please update this state on next render"
-        
-         
          
       }).catch((error)=>{
 
@@ -89,7 +87,7 @@ const Top = ({fetchWorkSpaces})=>{
         if(menuRef.current && !menuRef.current.contains(e.target))
          {
            setMenu(false);
-           setmobileViewOpen(false);
+         
           
          }
 
@@ -196,7 +194,7 @@ const Top = ({fetchWorkSpaces})=>{
             
              <div className="w-screen h-22 flex justify-between items-center md:justify-center  bg-[#1f1f21]">
 
-                  <div className="flex space-x-14 items-center relative text-white md:hidden">
+                  <div className="flex space-x-6 items-center relative text-white md:hidden">
                      <button className="mb-1.5 ml-4" onClick={()=>{setmobileViewOpen(!mobileViewOpen);setClickProject(false)}}> <FiAlignJustify size={40}></FiAlignJustify> </button>
                           {mobileViewOpen && (
                             <div ref={menuRef} className="absolute top-17 w-24 h-16  text-white md:hidden">
@@ -232,7 +230,7 @@ const Top = ({fetchWorkSpaces})=>{
                         </form>
                     </div>
                    
-                    <div >
+                    <div>
                         {
                            user &&
                            (<div className="">
@@ -244,6 +242,50 @@ const Top = ({fetchWorkSpaces})=>{
                         }
                         
                       </div>
+
+                      <div className="relative">
+
+                        <FaBell onClick={()=>setOpenNotification(!openNotification)} className="text-white" size={40}></FaBell>
+
+                        {
+                           unreadCount > 0 && (<div className="absolute -top-2 -right-2 bg-red-500 text-white
+                           rounded-full w-6 h-6 flex justify-center items-center text-sm font-bold">
+                           {unreadCount}
+                           </div>)
+                        }
+
+                        {
+                           openNotification && (
+                           <div  className="flex flex-col absolute right-0 mt-2 w-80 h-fit bg-black shadow-lg rounded-lg z-50">
+                                {
+                                 notifications.map((notification)=>(
+                                    <div className="w-76 mx-auto bg-[#545454] p-2 m-2 shadow-lg rounded-md" key={notification._id}>
+                                        {
+                                          notification.type === "workspace_invite" && (
+                                             <div className="flex flex-col justify-center items-center gap-2">
+
+                                                <div className="">{notification.message}</div>
+
+                                                <div className="md:w-56 flex justify-between">
+
+                                                   <button  onClick={()=>acceptInvitation(notification.invitationId._id)}
+                                                    className="bg-green-500 text-white px-3 py-1 rounded">Accept</button>
+
+                                                   <button  onClick={()=>rejectInvitation(notification.invitationId._id)}
+                                                   className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
+
+                                                </div>
+
+                                             </div>
+                                          )
+                                        }
+                                    </div>
+                                 ))
+                                }
+                           </div>)
+                        }
+
+                     </div>
                   
 
 

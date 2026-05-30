@@ -65,15 +65,15 @@ const Login = () => {
               <h3 className="font-medium">Cloud Free</h3>
            </div>
 
-           <div className="mt-8 w-2xs sm:w-2xl h-2/3 sm:h-1/2 rounded-xl shadow-lg bg-amber-400 p-6">
+           <div className="mt-8 w-2xs sm:w-2xl rounded-xl shadow-lg bg-amber-400 p-6">
            <div className="sm:flex flex-col"> 
                 {/* 1st Div */}
                <div className="">
                 {/* Get Started */}
               <div className="flex flex-col items-center">
-                  <h1 className="font-bold text-2xl">Get Started</h1>
+                  <h1 className="font-semibold text-2xl">Get Started</h1>
                   <h3 className="font-medium">Free up to 10 users</h3>
-                  <legend className="sm:ml-0 mt-6 text-xl sm:text-2xl font-medium ">Log in to Continue</legend>
+                  <legend className="sm:ml-0 mt-3 text-xl sm:text-2xl font-medium ">Log in to Continue</legend>
               </div>
                </div>
 

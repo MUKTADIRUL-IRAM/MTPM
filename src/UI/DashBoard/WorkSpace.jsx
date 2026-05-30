@@ -47,12 +47,12 @@ const WorkSpace = () => {
                                   workSpaceList.map((workSpace,index) => (
                                   <div key={workSpace._id} className="flex  gap-5">
                                       <div className="md:text-4xl text-fuchsia-600">{index+1}</div>
-                                      <div className="md:w-6xl flex justify-between border border-black rounded-md p-3 bg-pink-600">
-                                            <div className="flex flex-col justify-center gap-3">
+                                      <div className="w-88 md:w-6xl flex justify-between border border-black rounded-md p-2 bg-pink-600">
+                                            <div className="flex flex-col justify-start gap-3">
                                                 <div className="md:text-4xl">{workSpace.workSpaceName}</div>
                                                 <div className="md:text-2xl">Members : {workSpace.members.length}</div>
                                             </div>
-                                          <div className="flex flex-col items-center gap-3">
+                                          <div className="flex flex-col items-center gap-2">
                                           <InviteMember workSpace={workSpace}></InviteMember>
                                           <Link to={`/workSpace/${workSpace._id}`}><button className="btn btn-primary">Enter</button></Link>
                                           </div>

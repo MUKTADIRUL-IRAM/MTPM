@@ -58,7 +58,7 @@ const InviteMember = ({workSpace}) => {
         {
           clickInviteMember ?
           <div ref={emailRef}>
-            <form onSubmit={handleInvite} className="flex flex-col items-center gap-1.5 bg-red-600" action="">
+            <form onSubmit={handleInvite} className="flex flex-col items-center gap-1.5" action="">
               <div className="flex gap-1">
                  <input value={email} onChange={(e)=>setEmail(e.target.value)} className="input focus:outline-none" type="email" placeholder="Enter Email" required/>
 
@@ -77,7 +77,7 @@ const InviteMember = ({workSpace}) => {
           </div>
          
           :
-          <><button onClick={()=>setClickInviteMember(true)} className="btn btn-accent">Invite Members</button></>
+          <><button onClick={()=>setClickInviteMember(true)} className="w-36 h-10 rounded-md bg-violet-600">Invite Members</button></>
         }
     </div>
   )
