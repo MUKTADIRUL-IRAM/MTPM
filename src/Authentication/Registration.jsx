@@ -91,6 +91,7 @@ const Registration = () => {
    const user = userCredentials.user; // The signed-in user info.
    Swal.fire("Registration Completed Successfully"); 
    console.log("Signed Up By Google : ",user);
+   navigate('/');
   })
    .catch((error)=>{
    const errorCode = error.code;
@@ -108,6 +109,7 @@ const Registration = () => {
    const user = userCredentials.user;
    Swal.fire("Registration Completed Successfully");  
    console.log("Signed Up By FaceBook : ",user);
+   navigate('/');
    })
    .catch((error)=>{
    const errorCode = error.code;
@@ -133,9 +135,9 @@ const Registration = () => {
                 <form onSubmit={handleSubmit} className="" action="">
                   <fieldset className="fieldset">
                      <div className="space-y-4 mt-5">
-                       <input type="text" className="input" name="name" placeholder="Enter your full name" required/>
-                       <input type="text" className="input" name="email" placeholder="example@gmail.com" required/>
-                       <input type="password" className="input" name="password" placeholder="Create your password" required/>
+                       <input type="text" className="input focus:outline-none" name="name" placeholder="Enter your full name" required/>
+                       <input type="email" className="input focus:outline-none" name="email" placeholder="example@gmail.com" required/>
+                       <input type="password" className="input focus:outline-none" name="password" placeholder="Create your password" required/>
                      </div>
                     <button className="btn btn-primary mt-3 sm:w-80">Sign Up</button>
                  </fieldset>

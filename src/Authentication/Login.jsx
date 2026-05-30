@@ -9,7 +9,7 @@ import axios from "axios";
 
 const Login = () => {
 
-  const {signInUser,signUserOut} = useContext(AuthContext);
+  const {signInUser,signUserOut,signInByGoogle,signInByFB} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e)=>{
@@ -55,6 +55,75 @@ const Login = () => {
 
   };
 
+   const handleGoogle = ()=>{
+  
+     signInByGoogle()
+     .then(async(userCredentials)=>{
+
+     const user = userCredentials.user; // The signed-in user info.
+
+     console.log('Signed In By Google : ',user);
+
+     if(!user.emailVerified)
+     {
+      Swal.fire('Verify your Email First');
+      await signUserOut();
+      return;
+     }
+
+     const userData = {name : user.displayName,email : user.email,verifiedEmail : user.emailVerified};
+
+     await axios.post("http://localhost:3000/users/userData",userData,{withCredentials:true});
+     
+     Swal.fire("Logged in Successfully!");
+
+     navigate('/workspace');//Change it to WorkSpace
+  
+    })
+     .catch((error)=>{
+     const errorCode = error.code;
+     console.log("ErrorCode when try to Signed In through Google : ",errorCode);
+     const errorMessage = error.message;
+     console.log("ErrorMessage when try to Signed In through Google : ",errorMessage);
+  });
+  
+  };
+
+   const handleFacebook = ()=>{
+  
+     signInByFB()
+     .then(async(userCredentials)=>{
+
+     const user = userCredentials.user;
+
+     console.log("Signed In By FaceBook : ",user);
+
+     if(!user.emailVerified)
+     {
+      Swal.fire('Verify your Email First');
+      await signUserOut();
+      return;
+     }
+
+     const userData = {name : user.displayName,email : user.email,verifiedEmail : user.emailVerified};
+
+     await axios.post("http://localhost:3000/users/userData",userData,{withCredentials:true});
+     
+     Swal.fire("Logged in Successfully!");
+
+     navigate('/workspace');//Change it to WorkSpace
+
+
+     })
+     .catch((error)=>{
+     const errorCode = error.code;
+     console.log("ErrorCode when try to Signed In through Facebook : ",errorCode);
+     const errorMessage = error.message;
+     console.log("ErrorMessage when try to Signed In through Facebook : ",errorMessage);
+  
+     })
+  };
+
      
     return (
         
@@ -84,24 +153,28 @@ const Login = () => {
                   <fieldset className="text-xl fieldset">
                      <div className="mt-3 sm:flex flex-col">
                       <label className="label font-medium" htmlFor="">Email:</label>
-                      <input type="text" className="input mt-1 w-60 sm:w-80" name="email" placeholder="ex:john@gmail.com" required />
+                      <input type="email" className="input mt-1 w-60 sm:w-80 focus:outline-none" name="email" placeholder="ex:john@gmail.com" required />
                       <label htmlFor="" className="label font-medium mt-1">Password:</label>
-                      <input type="password" className="input mt-1" name="password" placeholder="" required/>
+                      <input type="password" className="input mt-1 focus:outline-none" name="password" required/>
                      </div>
                      <button className="btn btn-primary mt-1 sm:w-80">Submit</button>
                   </fieldset>
               </form>
 
                <div className="flex flex-col mt-3 space-y-1.5 sm:space-y-9 sm:mt-18">
-                <button className="btn btn-neutral sm:w-64">
+
+                <button onClick={handleGoogle} className="btn btn-neutral sm:w-64">
                     <img className="w-6 h-6 sm:w-8 sm:h-8" src={google} alt="google_logo" />
                     <div>Continue With Google</div>
                 </button>
-                <button className="btn sm:w-64">
+
+                <button onClick={handleFacebook} className="btn sm:w-64">
                   <img className="w-7 h-7 sm:w-12 sm:h-12 ml-1.5" src={fb} alt="fb_logo" />
                   <div className="">Continue With Facebook</div>
                 </button>
+
                </div>
+
               </div>
 
                 {/* 3rd Div */}
