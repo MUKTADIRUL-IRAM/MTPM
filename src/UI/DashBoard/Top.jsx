@@ -12,7 +12,7 @@ import axios from "axios";
 
 
 
-const Top = ()=>{
+const Top = ({fetchWorkSpaces})=>{
 
    const[mobileViewOpen,setmobileViewOpen] = useState(false);
    const[menu,setMenu] = useState(false);
@@ -30,13 +30,16 @@ const Top = ()=>{
    
    const {user,signUserOut} = useContext(AuthContext);
 
-   useEffect(()=>{
+   //polling
+   const fetchNotifications = ()=>{
+
       axios.get("http://localhost:3000/notification/getNotifications",{withCredentials:true})
       .then((res)=>{
-         console.log(("Successfully fetched all the notification : ",res.data));
-         setNotifications(res.data);
+         console.log("Successfully fetched all the notification :",res.data);
+         setNotifications(res.data);//"React, please update this state on next render"
+        
          
-
+         
       }).catch((error)=>{
 
       const errorCode = error.code;
@@ -45,6 +48,17 @@ const Top = ()=>{
       console.log("Couldn't get notification data & errorMessage is : ",errorMessage);
 
     })
+
+   };
+
+   useEffect(()=>{
+
+      fetchNotifications();
+
+      const interval = setInterval(()=>{fetchNotifications();},3000);
+
+      return ()=>clearInterval(interval);
+      
    },[]);
 
    const unreadCount = notifications.filter((notification)=>notification.isRead === false).length//filter gives new array and length count the size of the array
@@ -121,6 +135,7 @@ const Top = ()=>{
       axios.patch(`http://localhost:3000/invitation/acceptInvitation/${invitationId}`,{},{withCredentials:true})
       .then((res)=>{
          console.log("Successfully Add member to a WorkSpace & Changed Status in Invitation Collection : ",res.data);
+         fetchWorkSpaces();
 
       setNotifications(prev=>
       //We have to run a '.map' here because we need "to update just ONE item inside the array"
@@ -130,7 +145,8 @@ const Top = ()=>{
       //2.Loop through each task
       //3.Replace only the matching one
       //4.Return a NEW array
-      prev.map((notification)=> notification.invitationId === invitationId ? {...notification,isRead:true} : notification));
+      prev.map((notification)=> notification.invitationId._id === invitationId ? {...notification,isRead:true} : notification));
+      setOpenNotification(false);
          
 
       }).catch((error)=>{
@@ -158,7 +174,8 @@ const Top = ()=>{
       //2.Loop through each task
       //3.Replace only the matching one
       //4.Return a NEW array
-      prev.map((notification)=> notification.invitationId === invitationId ? {...notification,isRead:true} : notification));
+      prev.map((notification)=> notification.invitationId._id === invitationId ? {...notification,isRead:true} : notification));
+      setOpenNotification(false);
          
 
       }).catch((error)=>{
@@ -303,10 +320,10 @@ const Top = ()=>{
 
                                                 <div className="md:w-56 flex justify-between">
 
-                                                   <button  onClick={()=>acceptInvitation(notification.invitationId)}
+                                                   <button  onClick={()=>acceptInvitation(notification.invitationId._id)}
                                                     className="bg-green-500 text-white px-3 py-1 rounded">Accept</button>
 
-                                                   <button  onClick={()=>rejectInvitation(notification.invitationId)}
+                                                   <button  onClick={()=>rejectInvitation(notification.invitationId._id)}
                                                    className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
 
                                                 </div>

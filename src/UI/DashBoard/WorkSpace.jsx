@@ -8,10 +8,9 @@ const WorkSpace = () => {
 
   const navigate = useNavigate();
   const[workSpaceList,setWorkSpaceList] = useState([]);
-  
 
-  useEffect(()=>{
-      
+  const fetchWorkSpaces = ()=>{
+
     axios.get('http://localhost:3000/workSpace/getWorkSpaceList',{withCredentials : true})
     .then((res)=>{
       setWorkSpaceList(res.data);
@@ -26,12 +25,19 @@ const WorkSpace = () => {
 
     })
 
+  };
+  
+
+  useEffect(()=>{
+      
+    fetchWorkSpaces();
+    
   },[]);
 
 
   return (
      <div>
-          <Top></Top>
+          <Top fetchWorkSpaces={fetchWorkSpaces}></Top>
           <div className="w-screen min-h-screen flex flex-col items-center gap-8 bg-blue-600">
               <button onClick={()=>navigate('/workspaceform')} className="btn btn-accent text-2xl py-10 mt-6">Create WorkSpace</button>
                       {

@@ -40,6 +40,7 @@ const InviteMember = ({workSpace}) => {
       console.log("Invitation Data : ",res.data);
       setEmail("");
       setRole("");
+      setClickInviteMember(false);
       
      }).catch((error)=>{
 
