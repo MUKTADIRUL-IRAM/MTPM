@@ -192,9 +192,9 @@ const Top = ({fetchWorkSpaces})=>{
     return (
           <div>
             
-             <div className="w-screen h-22 flex justify-between items-center md:justify-center  bg-[#1f1f21]">
+             <div className="w-full h-22 flex justify-between items-center md:justify-center  bg-[#1f1f21]">
 
-                  <div className="flex space-x-6 items-center relative text-white md:hidden">
+                  <div className="flex justify-between w-full items-center px-3 relative text-white md:hidden">
                      <button className="mb-1.5 ml-4" onClick={()=>{setmobileViewOpen(!mobileViewOpen);setClickProject(false)}}> <FiAlignJustify size={40}></FiAlignJustify> </button>
                           {mobileViewOpen && (
                             <div ref={menuRef} className="absolute top-17 w-24 h-16  text-white md:hidden">
@@ -211,7 +211,7 @@ const Top = ({fetchWorkSpaces})=>{
 
 
                      <div className=""> 
-                         <form className="input w-48 flex bg-amber-400">
+                         <form className="input w-36 flex bg-amber-400">
                             <input className="text-xl md:text-2xl placeholder-black" type="text" onChange={(e)=>setQuery(e.target.value)} value={query} placeholder="Search"/>
                             <button type="submit">
                                 <svg className="w-[2em] h-[2em] text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
