@@ -154,11 +154,11 @@ const MainArea = ({workSpace})=>{
   },[workSpace._id]);//Empty array means it will run only once
       
     return(
-        <div className="bg-amber-600 min-h-screen">
+        <div className="bg-amber-600 w-full md:w-screen min-h-screen">
 
           
 
-            <div className="w-full max-w-7xl mx-auto p-2">
+            <div className=" max-w-7xl mx-auto p-2">
               {
                 screen === 'projects' && <ProjectList handleSubmit={handleSubmit} projectName={projectName} 
                 setProjectName={setProjectName} projects={projects} loadingProjects={loadingProjects} 

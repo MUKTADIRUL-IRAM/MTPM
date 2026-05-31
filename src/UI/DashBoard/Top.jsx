@@ -187,17 +187,17 @@ const Top = ({fetchWorkSpaces})=>{
 
    }
 
+//md:w-screen;md:w-7xl;w-full
 
-
-    return (
-          <div>
+return (
+          <div className="">
             
-             <div className="w-full h-22 flex justify-between items-center md:justify-center  bg-[#1f1f21]">
+             <div className="h-22 flex justify-between items-center md:justify-center  bg-[#1f1f21]">
 
-                  <div className="flex justify-between w-full items-center px-3 relative text-white md:hidden">
-                     <button className="mb-1.5 ml-4" onClick={()=>{setmobileViewOpen(!mobileViewOpen);setClickProject(false)}}> <FiAlignJustify size={40}></FiAlignJustify> </button>
+                  <div className="flex justify-between items-center w-screen px-3 relative text-white md:hidden">
+                     <button className="mb-1" onClick={()=>{setmobileViewOpen(!mobileViewOpen);setClickProject(false)}}> <FiAlignJustify size={40}></FiAlignJustify> </button>
                           {mobileViewOpen && (
-                            <div ref={menuRef} className="absolute top-17 w-24 h-16  text-white md:hidden">
+                            <div ref={menuRef} className="absolute top-16 left-0 w-24 h-16 text-white">
                                 <button onClick={()=>setClickProject(!clickProject)} className="w-24 p-1 bg-blue-400">Projects</button>
                                 {clickProject && (
                                  <div className="w-24 absolute left-24 bottom-4 bg-gray-700 cursor-default">
@@ -211,7 +211,7 @@ const Top = ({fetchWorkSpaces})=>{
 
 
                      <div className=""> 
-                         <form className="input w-36 flex bg-amber-400">
+                         <form className="input w-30 flex bg-amber-400">
                             <input className="text-xl md:text-2xl placeholder-black" type="text" onChange={(e)=>setQuery(e.target.value)} value={query} placeholder="Search"/>
                             <button type="submit">
                                 <svg className="w-[2em] h-[2em] text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -230,12 +230,12 @@ const Top = ({fetchWorkSpaces})=>{
                         </form>
                     </div>
                    
-                    <div>
+                      <div className="">
                         {
                            user &&
-                           (<div className="">
+                           (<div className="shrink-0">
                              {/* <div className="font-semibold w-fit bg-fuchsia-700 shadow-lg">{user.displayName}</div> */}
-                             <div onClick={handleSignOut} className="font-semibold text-center w-22 p-1 bg-green-700 shadow-lg cursor-default">Sign Out</div>
+                             <div onClick={handleSignOut} className="w-fit text-white font-semibold text-center p-1 bg-green-700 shadow-lg cursor-default">Sign Out</div>
                            </div>
                            )
                           
@@ -245,7 +245,7 @@ const Top = ({fetchWorkSpaces})=>{
 
                       <div className="relative">
 
-                        <FaBell onClick={()=>setOpenNotification(!openNotification)} className="text-white" size={40}></FaBell>
+                        <FaBell onClick={()=>setOpenNotification(!openNotification)} className="text-white" size={30}></FaBell>
 
                         {
                            unreadCount > 0 && (<div className="absolute -top-2 -right-2 bg-red-500 text-white
@@ -291,7 +291,7 @@ const Top = ({fetchWorkSpaces})=>{
 
                   </div>
 
-                    <div className="hidden md:w-7xl md:flex md:justify-evenly md:items-center">
+                    <div className="hidden w-screen md:flex md:justify-evenly md:items-center">
                       <div ref={menuRef} className="relative bg-green-500">
                          <button onClick={()=>setMenu(!menu)} className="font-semibold md:w-24 md:h-12 bg-blue-500 shadow-lg">Projects</button>
                          {menu && (

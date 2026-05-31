@@ -7,6 +7,7 @@ import ProjectPage from "../UI/DashBoard/ProjectPage";
 import WorkSpace from "../UI/DashBoard/WorkSpace";
 import WorkSpaceForm from "../UI/DashBoard/WorkSpaceForm";
 import MainArea from "../UI/DashBoard/MainArea";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -25,23 +26,23 @@ const router = createBrowserRouter([
         },
         {
             path:'/dashboard',
-            element:<DashBoard></DashBoard>
+            element:<PrivateRouter><DashBoard></DashBoard></PrivateRouter>
         },
         {
             path:'/project/:id',
-            element:<ProjectPage></ProjectPage>
+            element:<PrivateRouter><ProjectPage></ProjectPage></PrivateRouter>
         },
         {
             path:'/workspace',
-            element:<WorkSpace></WorkSpace>
+            element:<PrivateRouter><WorkSpace></WorkSpace></PrivateRouter>
         },
         {
             path:'/workspaceform',
-            element:<WorkSpaceForm></WorkSpaceForm>
+            element:<PrivateRouter><WorkSpaceForm></WorkSpaceForm></PrivateRouter>
         },
         {
             path:'/workSpace/:workSpaceId',
-            element:<DashBoard></DashBoard>
+            element:<PrivateRouter><DashBoard></DashBoard></PrivateRouter>
         },
 
       

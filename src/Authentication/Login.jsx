@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import google from "../assets/Google__G__logo.svg.webp";
@@ -11,6 +11,11 @@ const Login = () => {
 
   const {signInUser,signUserOut,signInByGoogle,signInByFB} = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("Location from Login Page : ",location);
+
+  const from = location.state || '/workspace';
+  
 
   const handleSubmit = (e)=>{
         
@@ -41,7 +46,7 @@ const Login = () => {
      
      Swal.fire("Logged in Successfully!");
 
-     navigate('/workspace');//Change it to WorkSpace
+     navigate(from);//Change it to WorkSpace
 
      
     }).catch((error) => {
@@ -77,7 +82,7 @@ const Login = () => {
      
      Swal.fire("Logged in Successfully!");
 
-     navigate('/workspace');//Change it to WorkSpace
+     navigate(from);//Change it to WorkSpace
   
     })
      .catch((error)=>{
@@ -111,7 +116,7 @@ const Login = () => {
      
      Swal.fire("Logged in Successfully!");
 
-     navigate('/workspace');//Change it to WorkSpace
+     navigate(from);//Change it to WorkSpace
 
 
      })

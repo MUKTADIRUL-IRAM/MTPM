@@ -36,7 +36,7 @@ const WorkSpaceForm = () => {
   return (
     <div>
         <Top></Top>
-        <div className="w-screen min-h-screen flex justify-center bg-blue-600">
+        <div className="w-full min-h-screen flex justify-center bg-blue-600">
           <div className="w-96 md:w-2xl h-fit">
              <form onSubmit={handleSubmit} className="flex flex-col gap-2 m-6 p-4 md:mt-24 bg-pink-500" action="#">
                 <div className="flex flex-col gap-4">

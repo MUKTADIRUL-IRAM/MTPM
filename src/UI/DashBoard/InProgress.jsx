@@ -214,7 +214,7 @@ const InProgress = ({id,taskUI,setTaskUI,workSpace}) => {
                         <div className="relative">
                          <BsThreeDots onClick={()=>setClickDot(null)} className="w-6 h-6 md:w-8 md:h-8 px-1 hover:bg-white/10 rounded-sm" size={20}></BsThreeDots>
                          <div ref={clickDot === t._id ? menuRef: null} className="flex flex-col items-center rounded-md border border-[#3b82f6] cursor-pointer 
-                         absolute z-10 top-6 right-10 md:w-34 md:h-44 md:top-7 md:right-28 bg-black">
+                         absolute z-10 top-6 right-6 md:w-34 md:h-44 md:top-7 md:right-28 bg-black">
                            {
                             changeStatus === t._id ?
                             <>

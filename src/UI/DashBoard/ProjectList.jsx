@@ -20,7 +20,7 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
 
       {
         clickCreate && (
-            <div className="mt-12">
+            <div className="mt-12 mx-auto">
               <form onSubmit={handleSubmit} action="">
                  <textarea value={projectName} onChange={(e)=>setProjectName(e.target.value)} 
                   onKeyDown={(e)=>{
@@ -31,13 +31,15 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
 //e.target → the <textarea>;e.target.form → the parent <form> element;requestSubmit() → programmatically submits the form
 //onKeyDown --> Detects Enter key;onSubmit --> Executes your logic (handleSubmit)
                     }
-                  }} className="ml-10 w-96 min-h-20 p-1 border border-[#3b82f6] rounded-md bg-[#22272b] 
+                  }} className="w-96 ml-2 min-h-20 p-1 border border-[#3b82f6] rounded-md bg-[#22272b] 
                   text-gray-400 font-semibold placeholder:text-gray-400 placeholder:font-semibold 
                   placeholder:pl-2 placeholder:pt-5 md:ml-0 md:w-290 md:border-4 md:text-xl md:placeholder:text-2xl 
                   md:placeholder:pl-2
                   md:placeholder:pt-3
                   focus:outline-none" 
                   placeholder="Create Project"></textarea>
+                  <button type="button" onClick={()=>{setClickCreate(false);setProjectName("");}}
+                  className="w-20 font-semibold text-xl py-1 ml-38 md:ml-125 bg-red-600 rounded-md">Close</button>
               </form>
 
               
@@ -51,7 +53,7 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
         {
           projects.length !== 0 ? 
               
-              <div className="w-96 h-fit flex flex-col mt-12 ml-10 md:mt-16 md:ml-1 md:w-6xl md:gap-4 md:p-4 bg-red-500">
+              <div className="w-96 h-fit flex flex-col mt-16 mx-auto md:mt-16 md:ml-1 md:w-6xl md:gap-4 md:p-4 bg-red-500">
               <div className="flex justify-between mt-2 pr-2 md:pr-1">
                  <h2 className="ml-2 text-3xl font-semibold md:ml-0">Project Lists</h2>
                  <button onClick={()=>setClickCreate(true)} className="w-28 font-semibold text-xl rounded-md bg-blue-600">Create</button>
