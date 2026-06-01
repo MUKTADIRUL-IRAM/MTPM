@@ -55,13 +55,10 @@ const AuthProvider = ({children}) => {
           
         const unsubscribed = onAuthStateChanged(auth,(currentUser)=>{
 
-              console.log("🔥 AUTH CALLBACK FIRED");
-              console.log("currentUser:", currentUser);
-
               setUser(currentUser);
               console.log("Currently Logged In (From AuthProvider) : ",currentUser);//React State is Asynchronous,
                                                                                     //that's why we use 'currentUser' instead of 'user'
-              
+                                                                             
               //Getting Login Token
                if(currentUser?.email && currentUser.emailVerified)
               {
@@ -70,6 +67,7 @@ const AuthProvider = ({children}) => {
                 .then((res)=>{
                     console.log("Login Token (From AuthProvider) : ",res.data);
                     setLoading(false);
+                    
                    
                 })
                 .catch((error)=>{
@@ -89,7 +87,7 @@ const AuthProvider = ({children}) => {
                     console.log("Log-out Token (From AuthProvider) : ",res.data);
                     setUser(null);
                     setLoading(false);
-         
+                    
                 })
                 .catch((error)=>{
                     const errorCode = error.code;
@@ -98,6 +96,9 @@ const AuthProvider = ({children}) => {
                     console.log("Failed to get logout token and Error Message is : ",errorMessage);
                     
                 })
+
+                
+                
               }
 
              

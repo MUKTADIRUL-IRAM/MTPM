@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext/AuthContext";
 import Swal from "sweetalert2";
@@ -9,12 +9,25 @@ import axios from "axios";
 
 const Login = () => {
 
-  const {signInUser,signUserOut,signInByGoogle,signInByFB} = useContext(AuthContext);
+  const {user,signInUser,signUserOut,signInByGoogle,signInByFB} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   console.log("Location from Login Page : ",location);
 
   const from = location.state || '/workspace';
+
+  //protection against already-authenticated users.
+   useEffect(() =>{
+
+   if(user){
+
+      navigate("/workspace", {
+         replace: true
+      });
+
+   }
+
+}, [user, navigate]);
   
 
   const handleSubmit = (e)=>{
