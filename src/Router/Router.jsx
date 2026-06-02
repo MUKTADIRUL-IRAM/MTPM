@@ -45,10 +45,7 @@ const router = createBrowserRouter([
             path:'/workSpace/:workSpaceId',
             element:<PrivateRouter><DashBoard></DashBoard></PrivateRouter>
         },
-        {
-            path:'/createproject',
-            element:<CreateProject></CreateProject>
-        }
+
 
       
        ]

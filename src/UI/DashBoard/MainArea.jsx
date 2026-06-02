@@ -158,7 +158,7 @@ const MainArea = ({workSpace})=>{
 
           
 
-            <div className=" max-w-7xl mx-auto p-2">
+            <div className="max-w-7xl mx-auto p-2">
               {
                 screen === 'projects' && <ProjectList handleSubmit={handleSubmit} projectName={projectName} 
                 setProjectName={setProjectName} projects={projects} loadingProjects={loadingProjects} 
