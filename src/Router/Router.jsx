@@ -8,6 +8,7 @@ import WorkSpace from "../UI/DashBoard/WorkSpace";
 import WorkSpaceForm from "../UI/DashBoard/WorkSpaceForm";
 import MainArea from "../UI/DashBoard/MainArea";
 import PrivateRouter from "./PrivateRouter";
+import CreateProject from "../UI/DashBoard/CreateProject";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             path:'/workSpace/:workSpaceId',
             element:<PrivateRouter><DashBoard></DashBoard></PrivateRouter>
         },
+        {
+            path:'/createproject',
+            element:<CreateProject></CreateProject>
+        }
 
       
        ]

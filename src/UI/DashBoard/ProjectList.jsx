@@ -42,6 +42,7 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
                   className="w-20 font-semibold text-xl py-1 ml-38 md:ml-125 bg-red-600 rounded-md">Close</button>
               </form>
 
+          
               
     </div>
         )
@@ -82,12 +83,22 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
 
               : 
               
-              <div className="w-96 h-44 md:w-7xl md:h-96 ml-14 mt-56 p-4 text-white flex flex-col">
-               <div className="text-xl md:text-7xl font-semibold">You don't have any Projects right now</div>
-               <div className="mt-8 text-center text-xl md:text-7xl font-semibold">Create With Us.......</div>
-               <div><button onClick={()=>setClickCreate(true)} className="ml-28 mt-6 md:mt-30 md:ml-125 w-fit p-1 md:p-2 font-semibold rounded-md md:text-2xl bg-black">Create Project</button></div>
-              </div>
+              <>
+              {
+                clickCreate ? <></>
+
+                : 
+
               
+              <div className="w-88 h-48 md:w-7xl md:h-96 mx-auto mt-56 p-4 text-white flex flex-col">
+               <div className="text-xl md:text-7xl font-semibold inline-block wrap-break-word max-w-full">You don't have any Projects right now</div>
+               <div className="mt-8 text-center text-xl md:text-7xl font-semibold">Create With Us.......</div>
+               <div><button onClick={()=>setClickCreate(true)} className="ml-24 mt-6 md:mt-30 md:ml-125 w-fit p-1 md:p-2 font-semibold rounded-md md:text-2xl bg-black">Create Project</button></div>
+              </div>              
+              
+              }
+              </>
+
              
              
 
