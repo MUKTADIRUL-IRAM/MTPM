@@ -54,16 +54,16 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
         {
           projects.length !== 0 ? 
               
-              <div className="w-88 h-fit flex flex-col mt-16 mx-auto md:mt-16 md:ml-1 md:w-6xl md:gap-4 md:p-4 bg-red-500">
+              <div className="w-84 h-fit flex flex-col mt-16 mx-auto md:mt-16 md:ml-1 md:w-6xl md:gap-4 md:p-4 bg-red-500">
               <div className="flex justify-between mt-2 pr-2 md:pr-1">
-                 <h2 className="ml-2 text-3xl font-semibold md:ml-0">Project Lists</h2>
-                 <button onClick={()=>setClickCreate(true)} className="w-28 font-semibold text-xl rounded-md bg-blue-600">Create</button>
+                 <h2 className="ml-2 text-xl md:text-3xl font-semibold md:ml-0">Project Lists</h2>
+                 <button onClick={()=>setClickCreate(true)} className="w-20 font-semibold text-xl rounded-md bg-blue-600">Create</button>
               </div>
               
               <div className="flex flex-col gap-2 p-2 md:p-0">
                   {
                   projects.map((project,index)=>(
-                  <div key={project._id} className="flex justify-between gap-4 p-1 bg-[#1f1f21] border-2 border-gray-200 
+                  <div key={project._id} className="flex justify-between p-1 bg-[#1f1f21] border-2 border-gray-200 
                    text-white md:p-2 md:ml-0">
                     <div className="flex gap-2">
                        <div className="">{index+1}</div>
