@@ -20,7 +20,7 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
 
       {
         clickCreate && (
-            <div className="mt-12 mx-auto">
+            <div className="mt-12">
               <form onSubmit={handleSubmit} action="">
                  <textarea value={projectName} onChange={(e)=>setProjectName(e.target.value)} 
                   onKeyDown={(e)=>{
@@ -31,7 +31,7 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
 //e.target → the <textarea>;e.target.form → the parent <form> element;requestSubmit() → programmatically submits the form
 //onKeyDown --> Detects Enter key;onSubmit --> Executes your logic (handleSubmit)
                     }
-                  }} className="w-88 ml-4 min-h-20 p-1 border border-[#3b82f6] rounded-md bg-[#22272b] 
+                  }} className="w-80 ml-4 min-h-20 p-1 border border-[#3b82f6] rounded-md bg-[#22272b] 
                   text-gray-400 font-semibold placeholder:text-gray-400 placeholder:font-semibold 
                   placeholder:pl-2 placeholder:pt-5 md:ml-0 md:w-290 md:border-4 md:text-xl md:placeholder:text-2xl 
                   md:placeholder:pl-2
@@ -39,7 +39,7 @@ const ProjectList = ({projects,loadingProjects,handleSubmit,projectName,setProje
                   focus:outline-none" 
                   placeholder="Create Project"></textarea>
                   <button type="button" onClick={()=>{setClickCreate(false);setProjectName("");}}
-                  className="w-20 font-semibold text-xl py-1 ml-38 md:ml-125 bg-red-600 rounded-md">Close</button>
+                  className="w-20 font-semibold text-xl py-1 ml-32 md:ml-125 bg-red-600 rounded-md">Close</button>
               </form>
 
           
