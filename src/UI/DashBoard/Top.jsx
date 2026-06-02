@@ -195,7 +195,7 @@ return (
              <div className="h-22 flex justify-between items-center md:justify-center  bg-[#1f1f21]">
 
                   <div className="flex justify-between items-center w-screen px-3 relative text-white md:hidden">
-                     <button className="mb-1" onClick={()=>{setmobileViewOpen(!mobileViewOpen);setClickProject(false)}}> <FiAlignJustify size={40}></FiAlignJustify> </button>
+                     <button className="mb-1 ml-3" onClick={()=>{setmobileViewOpen(!mobileViewOpen);setClickProject(false)}}> <FiAlignJustify size={40}></FiAlignJustify> </button>
                           {mobileViewOpen && (
                             <div ref={menuRef} className="absolute top-16 left-3 w-24 h-16 text-white">
                                 <button onClick={()=>setClickProject(!clickProject)} className="w-24 p-1 bg-blue-400">Projects</button>

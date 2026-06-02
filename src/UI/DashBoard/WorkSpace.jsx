@@ -39,7 +39,7 @@ const WorkSpace = () => {
      <div>
           <Top fetchWorkSpaces={fetchWorkSpaces}></Top>
           <div className="w-full md:w-screen min-h-screen flex flex-col items-center gap-8 bg-blue-600">
-              <button onClick={()=>navigate('/workspaceform')} className="btn btn-accent text-2xl py-6 mt-8 mr-6">Create WorkSpace</button>
+              <button onClick={()=>navigate('/workspaceform')} className="btn btn-accent text-2xl py-6 mt-8">Create WorkSpace</button>
                       {
                          workSpaceList.length !== 0 && (<div className="w-80 m-8 md:w-6xl h-fit p-4 bg-black">
                             <div className="flex flex-col gap-4">
