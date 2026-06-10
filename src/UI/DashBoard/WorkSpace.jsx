@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import Top from "./Top";
+import MemoizedTop from "./Top";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import InviteMember from "./InviteMember";
@@ -37,7 +37,7 @@ const WorkSpace = () => {
 
   return (
      <div>
-          <Top fetchWorkSpaces={fetchWorkSpaces}></Top>
+          <MemoizedTop fetchWorkSpaces={fetchWorkSpaces}></MemoizedTop>
           <div className="w-full md:w-screen min-h-screen flex flex-col items-center gap-8 bg-blue-600">
               <button onClick={()=>navigate('/workspaceform')} className="btn btn-accent text-2xl py-6 mt-8">Create WorkSpace</button>
                       {

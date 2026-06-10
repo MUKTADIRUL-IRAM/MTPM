@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FiAlignJustify } from "react-icons/fi";
 import { AuthContext } from "../../AuthContext/AuthContext";
 import { auth } from "../../firebase/firebase_init";
@@ -404,3 +404,5 @@ return (
 };
 
 export default Top;
+
+export const MemoizedTop = React.memo(Top);

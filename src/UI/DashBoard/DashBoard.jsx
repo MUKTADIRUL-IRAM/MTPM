@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import MainArea from "./MainArea";
-import Top from "./Top";
+import MemoizedTop from "./Top";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -31,7 +31,7 @@ const DashBoard = ()=>{
 
     return(
         <div>
-            <Top></Top>
+            <MemoizedTop></MemoizedTop>
             {
                 workSpace ? 
                 <>
