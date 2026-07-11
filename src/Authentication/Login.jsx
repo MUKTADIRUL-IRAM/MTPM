@@ -12,6 +12,10 @@ const Login = () => {
   const {user,signInUser,signUserOut,signInByGoogle,signInByFB} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+//   location = {
+//     pathname: "/",pathname is / because you're on the login page."pathname tells you where you currently are."
+//     state: "/workspace",state remembers the page the user originally wanted."state is optional extra data passed during navigation."
+// }
   console.log("Location from Login Page : ",location);
 
   const from = location.state || '/workspace';

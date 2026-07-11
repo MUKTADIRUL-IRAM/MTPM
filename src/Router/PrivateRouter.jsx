@@ -24,7 +24,7 @@ const PrivateRouter = ({children}) => {
         return children;
     }
 
-  return <Navigate to='/' state={location?.pathname} ></Navigate>
+  return <Navigate to='/' state={location?.pathname} ></Navigate>//Go to '/' and carry '/workspace' with you."
 }
 
 export default PrivateRouter;
